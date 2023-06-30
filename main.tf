@@ -4,19 +4,21 @@ resource "azurerm_key_vault_key" "this" {
   key_type     = var.key_type
   key_size     = var.key_size
 
-  curve = var.curve
-
 
   key_opts = var.key_opts
 
   dynamic "rotation_policy" {
     for_each = var.enable_rotation_policy ? [1] : []
     content {
-      expire_after         = var.rotation_expire_after
-      notify_before_expiry = var.rotation_notify_before_expiry
-      automatic {
-        time_after_creation    = var.rotation_time_after_creation
-        time_before_expiration = var.rotation_time_before_expiration
+      expire_after         = var.expire_after
+      notify_before_expiry = var.notify_before_expiry
+
+      dynamic "automatic" {
+        for_each = var.enable_automatic_rotation ? [1] : []
+        content {
+          time_after_creation    = var.time_after_creation
+          time_before_expiry  = var.time_before_expiry
+        }
       }
     }
   }
