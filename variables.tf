@@ -25,35 +25,35 @@ variable "key_opts" {
 variable "enable_rotation_policy" {
   type        = bool
   description = "Whether to enable rotation policy for the key"
-  default = false
+  default     = false
 }
 
 variable "expire_after" {
   type        = string
   description = "The duration after which the key should expire"
-  default = "P90D"
+  default     = "P90D"
 }
 
 variable "notify_before_expiry" {
   type        = string
   description = "The duration before expiry to notify"
-  default = "P30D"
+  default     = "P30D"
 }
 
 variable "enable_automatic_rotation" {
   type        = bool
   description = "Whether to enable automatic rotation for the key"
-  default = false
+  default     = false
 }
 
 variable "time_after_creation" {
   type        = string
   description = "The duration after creation to rotate the key"
-  default = ""
+  default     = ""
 }
 
 variable "time_before_expiry" {
   type        = string
   description = "The duration before expiry to rotate the key"
-  default = ""
+  default     = ""
 }
