@@ -17,12 +17,6 @@ variable "key_size" {
   type        = number
   description = "The size of the key to create in the key vault"
 }
-variable "curve" {
-  type        = string
-  description = "The curve of the key to create in the key vault"
-  default     = "P-256"
-}
-
 variable "key_opts" {
   type        = list(string)
   description = "The options to use when creating the key in the key vault"
@@ -30,30 +24,36 @@ variable "key_opts" {
 
 variable "enable_rotation_policy" {
   type        = bool
-  description = "Whether or not to enable key rotation policy"
-  default     = false
+  description = "Whether to enable rotation policy for the key"
+  default = false
 }
 
-variable "rotation_expire_after" {
+variable "expire_after" {
   type        = string
   description = "The duration after which the key should expire"
-  default     = "90d"
+  default = "P90D"
 }
 
-variable "rotation_notify_before_expiry" {
+variable "notify_before_expiry" {
   type        = string
-  description = "The duration before expiry to notify that the key is about to expire"
-  default     = "30d"
+  description = "The duration before expiry to notify"
+  default = "P30D"
 }
 
-variable "rotation_time_after_creation" {
+variable "enable_automatic_rotation" {
+  type        = bool
+  description = "Whether to enable automatic rotation for the key"
+  default = false
+}
+
+variable "time_after_creation" {
   type        = string
-  description = "The duration after which the key should be rotated after creation"
-  default     = "365d"
+  description = "The duration after creation to rotate the key"
+  default = ""
 }
 
-variable "rotation_time_before_expiration" {
+variable "time_before_expiry" {
   type        = string
   description = "The duration before expiry to rotate the key"
-  default     = "60d"
+  default = ""
 }

@@ -30,11 +30,10 @@ module "key_vault_key" {
     "wrapKey",
   ]
 
-    enable_rotation_policy      = true
-    rotation_expire_after       = "90d"
-    rotation_notify_before_expiry = "7d"
-    rotation_time_after_creation = "30d"
-    rotation_time_before_expiration = "30d"
+  enable_rotation_policy = true
+  enable_automatic_rotation = true
+  time_after_creation = "P90D"
+  time_before_expiry = "P30D"
 }
 
 ```
