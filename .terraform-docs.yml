@@ -8,9 +8,9 @@ content: |-
 
   # Usage - Module
 
-  ## Network Watcher Flow Log
+  ##Key Vault Key
   ```hcl
-  {{ include "examples/network-watcher-flow-log-example/main.tf" }}
+  {{ include "examples/Key-Vault-Key/main.tf" }}
   ```
 
   {{ .Providers }}
