@@ -16,10 +16,16 @@ resource "azurerm_key_vault_key" "this" {
       dynamic "automatic" {
         for_each = var.enable_automatic_rotation ? [1] : []
         content {
-          time_after_creation    = var.time_after_creation
+          time_after_creation = var.time_after_creation
           time_before_expiry  = var.time_before_expiry
         }
       }
     }
+  }
+
+  lifecycle {
+    ignore_changes = [
+      rotation_policy,
+    ]
   }
 }
