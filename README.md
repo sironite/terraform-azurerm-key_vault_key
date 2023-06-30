@@ -24,11 +24,10 @@ module "key_vault_key" {
     "wrapKey",
   ]
 
-  enable_rotation_policy          = true
-  rotation_expire_after           = "90d"
-  rotation_notify_before_expiry   = "7d"
-  rotation_time_after_creation    = "30d"
-  rotation_time_before_expiration = "30d"
+  enable_rotation_policy = true
+  enable_automatic_rotation = true
+  time_after_creation = "P90D"
+  time_before_expiry = "P30D"
 }
 ```
 
@@ -57,12 +56,12 @@ No modules.
 | key\_size | The size of the key to create in the key vault | `number` | yes |
 | key\_type | The type of key to create in the key vault | `string` | yes |
 | key\_vault\_id | The ID of the key vault to create the key in | `string` | yes |
-| curve | The curve of the key to create in the key vault | `string` | no |
-| enable\_rotation\_policy | Whether or not to enable key rotation policy | `bool` | no |
-| rotation\_expire\_after | The duration after which the key should expire | `string` | no |
-| rotation\_notify\_before\_expiry | The duration before expiry to notify that the key is about to expire | `string` | no |
-| rotation\_time\_after\_creation | The duration after which the key should be rotated after creation | `string` | no |
-| rotation\_time\_before\_expiration | The duration before expiry to rotate the key | `string` | no |
+| enable\_automatic\_rotation | Whether to enable automatic rotation for the key | `bool` | no |
+| enable\_rotation\_policy | Whether to enable rotation policy for the key | `bool` | no |
+| expire\_after | The duration after which the key should expire | `string` | no |
+| notify\_before\_expiry | The duration before expiry to notify | `string` | no |
+| time\_after\_creation | The duration after creation to rotate the key | `string` | no |
+| time\_before\_expiry | The duration before expiry to rotate the key | `string` | no |
 
 ## Outputs
 
