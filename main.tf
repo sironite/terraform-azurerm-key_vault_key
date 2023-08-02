@@ -4,6 +4,8 @@ resource "azurerm_key_vault_key" "this" {
   key_type     = var.key_type
   key_size     = var.key_size
 
+  expiration_date = var.expiration_date
+  not_before_date = var.not_before_date
 
   key_opts = var.key_opts
 
@@ -26,6 +28,8 @@ resource "azurerm_key_vault_key" "this" {
   lifecycle {
     ignore_changes = [
       rotation_policy,
+      expiration_date,
+      not_before_date
     ]
   }
 }

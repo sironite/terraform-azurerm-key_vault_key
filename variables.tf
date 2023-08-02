@@ -17,6 +17,19 @@ variable "key_size" {
   type        = number
   description = "The size of the key to create in the key vault"
 }
+
+variable "expiration_date" {
+  type        = string
+  description = "The expiration date of the key"
+  default     = null
+}
+
+variable "not_before_date" {
+  type        = string
+  description = "The not before date of the key"
+  default     = null
+}
+
 variable "key_opts" {
   type        = list(string)
   description = "The options to use when creating the key in the key vault"
