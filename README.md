@@ -58,7 +58,9 @@ No modules.
 | key\_vault\_id | The ID of the key vault to create the key in | `string` | yes |
 | enable\_automatic\_rotation | Whether to enable automatic rotation for the key | `bool` | no |
 | enable\_rotation\_policy | Whether to enable rotation policy for the key | `bool` | no |
+| expiration\_date | The expiration date of the key | `string` | no |
 | expire\_after | The duration after which the key should expire | `string` | no |
+| not\_before\_date | The not before date of the key | `string` | no |
 | notify\_before\_expiry | The duration before expiry to notify | `string` | no |
 | time\_after\_creation | The duration after creation to rotate the key | `string` | no |
 | time\_before\_expiry | The duration before expiry to rotate the key | `string` | no |
