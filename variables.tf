@@ -21,13 +21,13 @@ variable "key_size" {
 variable "expiration_date" {
   type        = string
   description = "The expiration date of the key"
-  default     = null
+  default     = ""
 }
 
 variable "not_before_date" {
   type        = string
   description = "The not before date of the key"
-  default     = null
+
 }
 
 variable "key_opts" {
